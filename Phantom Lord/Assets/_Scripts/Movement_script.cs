@@ -23,22 +23,16 @@ public class Movement_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveHorizontal();
-        MoveVertical();
+        PlayerMove();
         PlayerRotation();
         Dash();
     }
 
-    public void MoveHorizontal()
+    public void PlayerMove()
     {
-        transform.Translate(transform.right *Input.GetAxis("Horizontal") * speed * Time.deltaTime);
+        transform.Translate((transform.right *Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical")) * speed * Time.deltaTime);
     }
 
-    public void MoveVertical()
-    {
-
-        transform.Translate(transform.forward*Input.GetAxis("Vertical") * speed * Time.deltaTime);
-    }
 
     public void PlayerRotation()
     {
@@ -58,11 +52,7 @@ public class Movement_script : MonoBehaviour
     public void Dash()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && player.CheckST(dashCost))
-        {
-            
-            /*transform.Translate(dir * dashMod * speed * Time.deltaTime);
-            transform.Translate(dir * dashMod * speed/2 * Time.deltaTime);
-            transform.Translate(dir * dashMod * speed/4 * Time.deltaTime);*/
+        {            
             dashTime = dashTimeFull;
             player.stamina -= dashCost;
         }
@@ -78,7 +68,7 @@ public class Movement_script : MonoBehaviour
 
     public Vector3 GetDir()
     {
-        if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0) return body.transform.forward;
-        else return body.transform.forward * Input.GetAxis("Vertical") + body.transform.right * Input.GetAxis("Horizontal");
+        if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0) return transform.forward;
+        else return transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal");
     }
 }
