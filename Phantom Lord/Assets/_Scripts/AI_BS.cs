@@ -2,12 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit_Script : MonoBehaviour
+public class AI_BS : MonoBehaviour
 {
-    public float HP;
-    public float HPmax;
-    public float Defense;
-    public float Damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +14,5 @@ public class Unit_Script : MonoBehaviour
     void Update()
     {
         
-    }
-
-    protected virtual void Tick()
-    {
-
     }
 }

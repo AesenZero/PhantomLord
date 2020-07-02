@@ -11,8 +11,6 @@ public class Player_Script : Unit_Script
     public float STregen;
     float timeChecker = 0;
 
-
-    public GameObject weapon; 
     public Animator anim;
 
     // Start is called before the first frame update
@@ -25,7 +23,7 @@ public class Player_Script : Unit_Script
     void Update()
     {
         Tick();
-        tempSwing();
+    
     }
 
     public bool CheckST(float t)
@@ -43,12 +41,5 @@ public class Player_Script : Unit_Script
         }
     }
 
-    public void tempSwing()
-    {
-
-        
-        if (Input.GetKey(KeyCode.Mouse0)) anim.SetBool("Attack_Pressed", true);
-        else anim.SetBool("Attack_Pressed", false);
-    }
     
 }

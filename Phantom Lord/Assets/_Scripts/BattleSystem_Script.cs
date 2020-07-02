@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit_Script : MonoBehaviour
+public class BattleSystem_Script : MonoBehaviour
 {
-    public float HP;
-    public float HPmax;
-    public float Defense;
-    public float Damage;
+    public Unit_Script UNIT;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +17,18 @@ public class Unit_Script : MonoBehaviour
         
     }
 
-    protected virtual void Tick()
+    public virtual float DealFinalDMG(float mod)
+    {
+        return mod;
+    }
+
+    public virtual void GetDMG(float dmg)
     {
 
+    }
+
+    public virtual float DealDMG()
+    {
+        return 0;
     }
 }

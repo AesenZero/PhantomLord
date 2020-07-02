@@ -218,7 +218,9 @@ GameObject:
   - component: {fileID: 7015357593234564480}
   - component: {fileID: 7015357593234564487}
   - component: {fileID: 7015357593234564481}
+  - component: {fileID: 7344075193012353321}
   - component: {fileID: 7015357593234564482}
+  - component: {fileID: 1310095532839599372}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -276,9 +278,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 100
   HPmax: 100
+  Defense: 0
+  Damage: 0
   stamina: 50
   STmax: 50
   STregen: 1
+  weapon: {fileID: 0}
+  anim: {fileID: 0}
+--- !u!114 &7344075193012353321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7015357593234564486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 976ca83f9a3baa349911ede3c62b9aca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UNIT: {fileID: 0}
+  weapon: {fileID: 1310095533904081313}
 --- !u!54 &7015357593234564482
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -295,6 +315,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!95 &1310095532839599372
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7015357593234564486}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 154b74e8ea38f714caeb3b96e233c06d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7015357593394986574
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,6 +441,7 @@ GameObject:
   - component: {fileID: 2959949111011617901}
   - component: {fileID: 7590131612968938903}
   - component: {fileID: 7641957289484357954}
+  - component: {fileID: 1310095533904081313}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -479,11 +519,25 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7703204568467285673}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1310095533904081313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7703204568467285673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65992867213cf394e9fff3a7a98cb61f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BS: {fileID: 0}
+  weapon_dmg: 10
 --- !u!1 &8292238521421688136
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +549,6 @@ GameObject:
   - component: {fileID: 8023226388474660158}
   - component: {fileID: 6482363764448198948}
   - component: {fileID: 213105422300599381}
-  - component: {fileID: 6176666359493727079}
   m_Layer: 0
   m_Name: SwordHandle
   m_TagString: Untagged
@@ -564,16 +617,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6176666359493727079
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8292238521421688136}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
