@@ -64,6 +64,7 @@ public class Movement_script : MonoBehaviour
         }
         else rb.velocity = Vector3.zero;
 
+        Debug.Log("Dash" + rb.velocity);
     }
 
     public Vector3 GetDir()

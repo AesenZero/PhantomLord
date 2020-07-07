@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 1310095532839599372}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,13 +278,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 100
   HPmax: 100
-  Defense: 0
-  Damage: 0
+  Defense: 20
+  Damage: 20
   stamina: 50
   STmax: 50
   STregen: 1
-  weapon: {fileID: 0}
-  anim: {fileID: 0}
 --- !u!114 &7344075193012353321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +296,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UNIT: {fileID: 0}
+  pushTime: 0
+  pushTimeFull: 2
+  pushDir: {x: 0, y: 0, z: 0}
+  RB: {fileID: 0}
+  pushForce: 2
+  pushMod: 400
   weapon: {fileID: 1310095533904081313}
+  anim: {fileID: 0}
 --- !u!54 &7015357593234564482
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -348,7 +353,7 @@ GameObject:
   - component: {fileID: 7015357593394986575}
   m_Layer: 0
   m_Name: BasicForm
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -538,6 +543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BS: {fileID: 0}
   weapon_dmg: 10
+  enemyTag: Enemy
 --- !u!1 &8292238521421688136
 GameObject:
   m_ObjectHideFlags: 0

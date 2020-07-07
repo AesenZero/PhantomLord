@@ -6,6 +6,7 @@ public class Weapon_Script : MonoBehaviour
 {
     public BattleSystem_Script BS;
     public float weapon_dmg;
+    public string enemyTag;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +21,11 @@ public class Weapon_Script : MonoBehaviour
 
     public void OnTriggerEnter(Collider ot)
     {
-        if(ot.tag == "Enemy")
+        if(ot.tag == enemyTag && !ot.isTrigger)
         {
-            BattleSystem_Script EnemyBS = ot.GetComponent<BattleSystem_Script>();
+            BattleSystem_Script EnemyBS = ot.GetComponentInParent<BattleSystem_Script>();
             EnemyBS.GetDMG(BS.DealFinalDMG(weapon_dmg));
+            EnemyBS.PushAway(BS.DirToUnit(EnemyBS));
         }
     }
 }
